@@ -25,9 +25,9 @@ def save_blog_post(content):
     """Save the generated blog post to a markdown file."""
     output_path = os.path.join("output", "ethical_ai_content_blog_post.md")
     with open(output_path, "w", encoding="utf-8") as f:
-        # Convert CrewOutput to string
-        if hasattr(content, 'raw_output'):
-            f.write(str(content.raw_output))
+        # Access the output attribute of CrewOutput
+        if hasattr(content, 'output'):
+            f.write(content.output)
         else:
             f.write(str(content))
     print(f"\nBlog post saved to: {output_path}")
